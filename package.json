@@ -1,0 +1,43 @@
+{
+  "name": "urbanoutfitters-images",
+  "version": "1.0.0",
+  "description": "image widget for urban outfitters item detail page clone",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loud-neighborzzz/urbanoutfitters-images.git"
+  },
+  "author": "Michael Thompson",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "bugs": {
+    "url": "https://github.com/loud-neighborzzz/urbanoutfitters-images/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.8.0",
+    "react-hot-loader": "^4.12.1",
+    "react-test-renderer": "^16.8.6",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
+  },
+  "homepage": "https://github.com/loud-neighborzzz/urbanoutfitters-images#readme"
+}
