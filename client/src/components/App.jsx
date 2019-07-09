@@ -6,10 +6,11 @@ class App extends React.Component {
     super();
     this.state ={
       //state
-        //color: string
-        itemId: 0
-        //bigImage: string
-        //thumbnails: []
+        data: [],
+        color: '',
+        itemId: null,
+        bigImage: '',
+        thumbnails: []
     }
     //binding
     this.getRequest = this.getRequest.bind(this)
@@ -19,11 +20,17 @@ class App extends React.Component {
   //methods
     //get request
   getRequest()  {
-    axios.get(`/images?itemId=${this.state.itemId}`)
+    axios.get('/images/0')
     .then((response)=>{
-      console.log(response)
+      console.log(response.data)
       //expect response of 6 images or 3?
       //how do we deal with the different colors
+      this.setState({
+        data: [...response.data],
+        color: response.data[0].color,
+        itemId: response.data[0].itemId,
+        bigImage: response.data[0].url
+      })
     })
     .catch((error)=>{
       console.log(error)
@@ -47,19 +54,19 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <div>
+          {/* <div>
             <img src={this.state.thumbnails[0]} onClick={this.handleImageClick}>Thumbnail1</img>
           </div>
           <div>
           <img src={this.state.thumbnails[1]} onClick={this.handleImageClick}
           >Thumbnail2</img>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
           <img src={this.state.thumbnails[2]} onClick={this.handleImageClick}>Thumbnail3</img>
-          </div>
+          </div> */}
         </div>
       <div>
-        <img src={this.state.bigImage} onClick={this.handleImageClick}>Big Image</img>
+        <img src={this.state.bigImage} onClick={this.handleImageClick}/>Big Image
       </div>
       <div>
         <button onClick={this.handleButtonClick}>
