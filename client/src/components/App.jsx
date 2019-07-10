@@ -29,7 +29,9 @@ class App extends React.Component {
         data: [...response.data],
         color: response.data[0].color,
         itemId: response.data[0].itemId,
-        bigImage: response.data[0].url
+        bigImage: response.data[0].url,
+        thumbnail1: response.data[1].url,
+        thumbnail2: response.data[2].url
       })
     })
     .catch((error)=>{
@@ -54,16 +56,13 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          {/* <div>
-            <img src={this.state.thumbnails[0]} onClick={this.handleImageClick}>Thumbnail1</img>
+          <div>
+            <img src={this.state.thumbnail1} onClick={this.handleImageClick}/>Thumbnail1
           </div>
           <div>
-          <img src={this.state.thumbnails[1]} onClick={this.handleImageClick}
-          >Thumbnail2</img>
-          </div> */}
-          {/* <div>
-          <img src={this.state.thumbnails[2]} onClick={this.handleImageClick}>Thumbnail3</img>
-          </div> */}
+          <img src={this.state.thumbnail2} onClick={this.handleImageClick}
+          />Thumbnail2
+          </div>
         </div>
       <div>
         <img src={this.state.bigImage} onClick={this.handleImageClick}/>Big Image
