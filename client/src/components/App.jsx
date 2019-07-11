@@ -6,11 +6,16 @@ class App extends React.Component {
     super();
     this.state ={
       //state
+      //window.location.pathname =  /itemId; e.g., localhost:3000/<itemId>
+      //you can slice off the '/' or use regex
+      //window.location.pathname.slice(1)
         data: [],
         color: '',
         itemId: null,
         bigImage: '',
-        thumbnails: []
+        thumbnail1: '',
+        thumbnail2: '',
+        thumbnail3: ''
     }
     //binding
     this.getRequest = this.getRequest.bind(this)
@@ -30,8 +35,9 @@ class App extends React.Component {
         color: response.data[0].color,
         itemId: response.data[0].itemId,
         bigImage: response.data[0].url,
-        thumbnail1: response.data[1].url,
-        thumbnail2: response.data[2].url
+        thumbnail1: response.data[0].url,
+        thumbnail2: response.data[1].url,
+        thumbnail3: response.data[2].url
       })
     })
     .catch((error)=>{
@@ -45,11 +51,31 @@ class App extends React.Component {
     //filter function?
     //handleClick for buttons
   handleButtonClick() {
-
+    if (this.state.color === this.state.data[0].color) {
+      this.setState({
+        color: this.state.data[3].color,
+        bigImage: this.state.data[3].url,
+        thumbnail1: this.state.data[3].url,
+        thumbnail2: this.state.data[4].url,
+        thumbnail3: this.state.data[5].url
+      })
     }
+    if (this.state.color === this.state.data[3].color) {
+      this.setState({
+        color: this.state.data[0].color,
+        bigImage: this.state.data[0].url,
+        thumbnail1: this.state.data[0].url,
+        thumbnail2: this.state.data[1].url,
+        thumbnail3: this.state.data[2].url
+      })
+    }
+  }
     //handleClick for images
-  handleImageClick() {
-
+  handleImageClick(e) {
+    console.log(e.target.src)
+    this.setState({
+      bigImage: e.target.src
+    })
   }
   //render function
   render() {
@@ -60,18 +86,21 @@ class App extends React.Component {
             <img src={this.state.thumbnail1} onClick={this.handleImageClick}/>Thumbnail1
           </div>
           <div>
-          <img src={this.state.thumbnail2} onClick={this.handleImageClick}
-          />Thumbnail2
+            <img src={this.state.thumbnail2} onClick={this.handleImageClick}/>Thumbnail2
+          </div>
+          <div>
+          <img src={this.state.thumbnail3} onClick={this.handleImageClick}
+          />Thumbnail3
           </div>
         </div>
-      <div>
-        <img src={this.state.bigImage} onClick={this.handleImageClick}/>Big Image
+      <div className="Big-Div">
+        <img className="Big-Div" src={this.state.bigImage} onClick={this.handleImageClick}/>Big Image
       </div>
       <div>
-        <button onClick={this.handleButtonClick}>
+        <button className="Color-Button-1" onClick={this.handleButtonClick}>
           Color Button 1
         </button>
-        <button onClick={this.handleButtonClick}>
+        <button className="Color-Button-2" onClick={this.handleButtonClick}>
           Color Button 2
         </button>
       </div>
