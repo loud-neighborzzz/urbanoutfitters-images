@@ -11,6 +11,8 @@ class App extends React.Component {
       //window.location.pathname.slice(1)
         data: [],
         color: '',
+        button1color: '',
+        button2color: '',
         itemId: null,
         bigImage: '',
         thumbnail1: '',
@@ -33,6 +35,8 @@ class App extends React.Component {
       this.setState({
         data: [...response.data],
         color: response.data[0].color,
+        button1color: response.data[0].color,
+        button2color: response.data[3].color,
         itemId: response.data[0].itemId,
         bigImage: response.data[0].url,
         thumbnail1: response.data[0].url,
@@ -77,32 +81,35 @@ class App extends React.Component {
       bigImage: e.target.src
     })
   }
+  //inline styling
+  
   //render function
   render() {
     return (
       <div>
-        <div>
+        <div className="container">
+        <div className="thumbnail-div">
           <div>
-            <img src={this.state.thumbnail1} onClick={this.handleImageClick}/>Thumbnail1
+            <img src={this.state.thumbnail1} onClick={this.handleImageClick} className="thumbnail"/>
           </div>
           <div>
-            <img src={this.state.thumbnail2} onClick={this.handleImageClick}/>Thumbnail2
+            <img src={this.state.thumbnail2} onClick={this.handleImageClick} className="thumbnail"/>
           </div>
           <div>
-          <img src={this.state.thumbnail3} onClick={this.handleImageClick}
-          />Thumbnail3
+          <img src={this.state.thumbnail3} onClick={this.handleImageClick} className="thumbnail"/>
           </div>
         </div>
-      <div className="Big-Div">
-        <img className="Big-Div" src={this.state.bigImage} onClick={this.handleImageClick}/>Big Image
+      <div className="big-div">
+        <img className="big-image" src={this.state.bigImage} onClick={this.handleImageClick}/>
       </div>
-      <div>
-        <button className="Color-Button-1" onClick={this.handleButtonClick}>
-          Color Button 1
+      <div className="button-div">
+      <button className="color-button-1" onClick={this.handleButtonClick} style={{backgroundColor: this.state.button1color}}>
+          
         </button>
-        <button className="Color-Button-2" onClick={this.handleButtonClick}>
-          Color Button 2
+        <button className="color-button-2" onClick={this.handleButtonClick} style={{backgroundColor: this.state.button2color}}>
+          
         </button>
+      </div>
       </div>
       </div>
     )

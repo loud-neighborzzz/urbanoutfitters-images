@@ -1,12 +1,34 @@
-.Big-Div {
- 
-}
-.Big-Image {
+.container {
+  display: flex;
 
 }
-.Color-Button-1 {
+.thumbnail {
+  width: 50px;
+}
+.big-div {
+ display: flex;
+ height: 550px;
+ width: 250px;
+}
+.big-image {
+  width: 400px;
 
 }
-.Color-Button-2 {
-  
+.thumbnail-div {
+  display: flex;
+  flex-direction: column;
+  width: 55px;
+}
+.button-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: auto;
+}
+button {
+  border-radius: 50%;
+  padding: 20px;
+  height: 50px;
+  width: 50px;
+  border: solid black 2px;
 }
