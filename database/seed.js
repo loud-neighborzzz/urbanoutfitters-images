@@ -26,6 +26,27 @@ i want 3 picture urls for every color
 //     url: ''
 //   }
 // }
+const dataGen = () => {
+  let dataArr = [];
+  let colorArr = ['coral', 'black']
+for (let k = 0; k < 600; k++) {
+  if (Math.floor(k/3) % 2 === 0) {
+    dataArr.push({
+      itemId: Math.floor(k/6),
+      color: colorArr[0],
+      url: `https://fec-clothes-images.s3-us-west-2.amazonaws.com/image${k}.jpeg`
+    })
+  }
+  if ((Math.floor(k/3) % 2 !== 0)) {
+    dataArr.push({
+      itemId: Math.floor(k/6),
+      color: colorArr[1],
+      url: `https://fec-clothes-images.s3-us-west-2.amazonaws.com/image${k}.jpeg`
+    })
+  }
+}
+return dataArr
+}
 randomDataArray = [
   {itemId: 0, color: 'coral', url: 'https://fec-clothes-images.s3-us-west-2.amazonaws.com/image0.jpeg'}, 
 {itemId: 0, color: 'coral', url: 'https://fec-clothes-images.s3-us-west-2.amazonaws.com/image1.jpeg'},
@@ -35,7 +56,7 @@ randomDataArray = [
    {itemId: 0, color: 'black', url: 'https://fec-clothes-images.s3-us-west-2.amazonaws.com/image5.jpeg'}];
 
 const insertSampleImage = () => {
-  Image.create(randomDataArray)
+  Image.create(dataGen())
   .then(()=> db.disconnect())
 }
 

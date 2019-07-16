@@ -13,7 +13,7 @@ class App extends React.Component {
         color: '',
         button1color: '',
         button2color: '',
-        itemId: null,
+        // itemId: 80,
         bigImage: '',
         thumbnail1: '',
         thumbnail2: '',
@@ -27,17 +27,13 @@ class App extends React.Component {
   //methods
     //get request
   getRequest()  {
-    axios.get('/images/0')
+    axios.get(`/images/${window.location.pathname.slice(1)}`)
     .then((response)=>{
-      console.log(response.data)
-      //expect response of 6 images or 3?
-      //how do we deal with the different colors
       this.setState({
         data: [...response.data],
         color: response.data[0].color,
         button1color: response.data[0].color,
         button2color: response.data[3].color,
-        itemId: response.data[0].itemId,
         bigImage: response.data[0].url,
         thumbnail1: response.data[0].url,
         thumbnail2: response.data[1].url,
@@ -54,8 +50,9 @@ class App extends React.Component {
   }
     //filter function?
     //handleClick for buttons
-  handleButtonClick() {
-    if (this.state.color === this.state.data[0].color) {
+  handleButtonClick(event) {
+    console.log(event.target.className)
+    if (event.target.className === 'color-button-2') {
       this.setState({
         color: this.state.data[3].color,
         bigImage: this.state.data[3].url,
@@ -64,7 +61,7 @@ class App extends React.Component {
         thumbnail3: this.state.data[5].url
       })
     }
-    if (this.state.color === this.state.data[3].color) {
+    if (event.target.className === 'color-button-1') {
       this.setState({
         color: this.state.data[0].color,
         bigImage: this.state.data[0].url,
@@ -104,7 +101,6 @@ class App extends React.Component {
       </div>
       <div className="button-div">
       <button className="color-button-1" onClick={this.handleButtonClick} style={{backgroundColor: this.state.button1color}}>
-          
         </button>
         <button className="color-button-2" onClick={this.handleButtonClick} style={{backgroundColor: this.state.button2color}}>
           
