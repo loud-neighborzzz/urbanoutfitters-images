@@ -57,7 +57,7 @@ randomDataArray = [
 
 const insertSampleImage = () => {
   Image.create(dataGen())
-  .then(()=> db.disconnect())
+  // .then(()=> db.disconnect())
 }
 
 insertSampleImage();
