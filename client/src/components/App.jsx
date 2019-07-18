@@ -95,15 +95,15 @@ class App extends React.Component {
           <img src={this.state.thumbnail3} onClick={this.handleImageClick} className={styles['thumbnail']}/>
           </div>
         </div>
-      <div className={styles['big-div']}>
+      <div >
         <img className={styles['big-image']} src={this.state.bigImage} onClick={this.handleImageClick}/>
+      </div>
       </div>
       <div className={styles['button-div']}>
       <button className={styles['color-button-1']} onClick={this.handleButtonClick} style={{backgroundColor: this.state.button1color}}>
         </button>
         <button className={styles['color-button-2']} onClick={this.handleButtonClick} style={{backgroundColor: this.state.button2color}}>
         </button>
-      </div>
       </div>
       </div>
     )

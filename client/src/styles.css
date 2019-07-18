@@ -19,10 +19,7 @@
 }
 .button-div {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  /* margin: auto; */
-  margin-bottom: -640px;
 }
 .color-button-1 {
   border-radius: 50%;
