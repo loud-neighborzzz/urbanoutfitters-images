@@ -1,6 +1,5 @@
 .container {
   display: flex;
-
 }
 .thumbnail {
   width: 50px;
@@ -23,7 +22,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin: auto;
+  /* margin: auto; */
+  margin-bottom: -640px;
 }
 .color-button-1 {
   border-radius: 50%;
