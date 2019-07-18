@@ -27,7 +27,7 @@ class App extends React.Component {
   //methods
     //get request
   getRequest()  {
-    axios.get(`http://localhost:3000/images/${window.location.pathname.slice(1)}`)
+    axios.get(`http://ec2-52-12-174-123.us-west-2.compute.amazonaws.com:3000/images/${window.location.pathname.slice(1)}`)
     .then((response)=>{
       this.setState({
         data: [...response.data],
