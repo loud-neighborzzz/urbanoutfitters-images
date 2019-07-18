@@ -25,6 +25,7 @@ class App extends React.Component {
     this.handleButtonClick = this.handleButtonClick.bind(this)
   }
   //methods
+  //asdfasdf
     //get request
   getRequest()  {
     axios.get(`http://ec2-52-12-174-123.us-west-2.compute.amazonaws.com:3000/images/${window.location.pathname.slice(1)}`)
