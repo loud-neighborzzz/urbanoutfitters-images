@@ -52,7 +52,7 @@ class App extends React.Component {
     //filter function?
     //handleClick for buttons
   handleButtonClick(event) {
-    if (event.target.className === 'color-button-2') {
+    if (event.target.className === styles['color-button-2']) {
       this.setState({
         color: this.state.data[3].color,
         bigImage: this.state.data[3].url,
@@ -61,7 +61,7 @@ class App extends React.Component {
         thumbnail3: this.state.data[5].url
       })
     }
-    if (event.target.className === 'color-button-1') {
+    if (event.target.className === styles['color-button-1']) {
       this.setState({
         color: this.state.data[0].color,
         bigImage: this.state.data[0].url,
