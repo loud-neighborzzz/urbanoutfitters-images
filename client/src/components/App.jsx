@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import styles from '../styles.css'
 
 class App extends React.Component {
   constructor() {
@@ -13,7 +14,6 @@ class App extends React.Component {
         color: '',
         button1color: '',
         button2color: '',
-        // itemId: 80,
         bigImage: '',
         thumbnail1: '',
         thumbnail2: '',
@@ -52,7 +52,6 @@ class App extends React.Component {
     //filter function?
     //handleClick for buttons
   handleButtonClick(event) {
-    console.log(event.target.className)
     if (event.target.className === 'color-button-2') {
       this.setState({
         color: this.state.data[3].color,
@@ -74,7 +73,6 @@ class App extends React.Component {
   }
     //handleClick for images
   handleImageClick(e) {
-    console.log(e.target.src)
     this.setState({
       bigImage: e.target.src
     })
@@ -85,26 +83,25 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="container">
-        <div className="thumbnail-div">
+        <div className={styles['container']}>
+        <div className={styles['thumbnail-div']}>
           <div>
-            <img src={this.state.thumbnail1} onClick={this.handleImageClick} className="thumbnail"/>
+            <img src={this.state.thumbnail1} onClick={this.handleImageClick} className={styles['thumbnail']}/>
           </div>
           <div>
-            <img src={this.state.thumbnail2} onClick={this.handleImageClick} className="thumbnail"/>
+            <img src={this.state.thumbnail2} onClick={this.handleImageClick} className={styles['thumbnail']}/>
           </div>
           <div>
-          <img src={this.state.thumbnail3} onClick={this.handleImageClick} className="thumbnail"/>
+          <img src={this.state.thumbnail3} onClick={this.handleImageClick} className={styles['thumbnail']}/>
           </div>
         </div>
-      <div className="big-div">
-        <img className="big-image" src={this.state.bigImage} onClick={this.handleImageClick}/>
+      <div className={styles['big-div']}>
+        <img className={styles['big-image']} src={this.state.bigImage} onClick={this.handleImageClick}/>
       </div>
-      <div className="button-div">
-      <button className="color-button-1" onClick={this.handleButtonClick} style={{backgroundColor: this.state.button1color}}>
+      <div className={styles['button-div']}>
+      <button className={styles['color-button-1']} onClick={this.handleButtonClick} style={{backgroundColor: this.state.button1color}}>
         </button>
-        <button className="color-button-2" onClick={this.handleButtonClick} style={{backgroundColor: this.state.button2color}}>
-          
+        <button className={styles['color-button-2']} onClick={this.handleButtonClick} style={{backgroundColor: this.state.button2color}}>
         </button>
       </div>
       </div>

@@ -25,7 +25,14 @@
   justify-content: flex-end;
   margin: auto;
 }
-button {
+.color-button-1 {
+  border-radius: 50%;
+  padding: 20px;
+  height: 50px;
+  width: 50px;
+  border: solid black 2px;
+}
+.color-button-2 {
   border-radius: 50%;
   padding: 20px;
   height: 50px;
