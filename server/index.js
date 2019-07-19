@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const Image = require('../database/Schema.js');
 const Port = 3000;
+const compression = require('compression')
 
 app.use(cors())
+app.use(compression())
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../client/dist'))
 
