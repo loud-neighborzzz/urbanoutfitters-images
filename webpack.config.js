@@ -1,13 +1,13 @@
 var path = require("path");
-var SRC_DIR = path.join(__dirname, "/client/src");
-var DIST_DIR = path.join(__dirname, "/client/dist");
+// var SRC_DIR = path.join(__dirname, "/client/src");
+// var DIST_DIR = path.join(__dirname, "/client/dist");
 
 module.exports = {
-  entry: `${SRC_DIR}/index.js`,
-  devtool: "source-map",
+  entry: `./client/src/index.js`,
   output: {
     filename: "bundle.js",
-    path: DIST_DIR
+    path: __dirname + './client/dist',
+    publicPath: '/'
   },
   module: {
     rules: [
